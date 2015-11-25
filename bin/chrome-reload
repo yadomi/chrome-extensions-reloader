@@ -1,0 +1,42 @@
+#! /usr/bin/env node
+
+var Reloader = require('../lib/reloader.js');
+var Logger = require('../lib/logger.js');
+
+var watch = require('watch');
+
+if(!Reloader.hasChromeCLI()) {
+  Logger.error('chrome-cli binary not found, please install it first');
+  Logger.error('check https://github.com/yadomi/chrome-extensions-reloader/README.md to install it')
+  process.exit(1);
+}
+
+var args = process.argv.slice(2);
+
+var tabId = Reloader.getExtensionsTabId();
+if(!tabId) {
+  Logger.error('Chrome extension tab not found')
+  Logger.error('Open a tab to chrome://extension-frame and try again')
+  process.exit(1);
+}
+
+var simpleReload = function() {
+  var success = Reloader.injectReloadScript(tabId);
+  if (success) Logger.success('Reloaded extensions (in tab ' + tabId + ')');
+}
+
+if(args[0] === '--single-run') {
+  simpleReload();
+  process.exit(0);
+}
+
+watch.watchTree(
+  process.cwd(),
+  {
+    ignoreDotFiles: true,
+    ignoreUnreadableDir: true,
+    ignoreDirectoryPattern: /node_modules/
+  },
+  function (f, curr, prev) {
+    if(prev !== null && curr.nlink !== 0) simpleReload();
+});
