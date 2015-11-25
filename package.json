@@ -2,11 +2,13 @@
   "name": "chrome-extensions-reloader",
   "version": "0.0.1",
   "description": "Automatically reload unpackaged chrome extensions on file change",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "reloader.js",
+  "bin": "./bin/chrome-reload",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yadomi/chrome-extensions-reloader.git"
   },
-  "author": "Felix Yadomi",
+  "author": "Felix Yadomi <felix.yadomi@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.1",
