@@ -51,7 +51,7 @@ Go to your project root directoy:
 
 ```
 $ cd my-awesome-chrome-extensions
-$ chrome-reloader
+$ chrome-extensions-reloader
 >> SUCCESS	 Reloaded extensions (in tab 818)
 >> SUCCESS	 Reloaded extensions (in tab 818)
 [...]
@@ -67,7 +67,7 @@ You may find that watching a folder is very slow and that's true, blame `fs.watc
 	
 	```
 	{
-	  "shell_cmd": "chrome-reloader --single-run"
+	  "shell_cmd": "chrome-extensions-reloader --single-run"
 	}
 
 	```

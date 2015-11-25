@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Automatically reload unpackaged chrome extensions on file change",
   "main": "reloader.js",
-  "bin": "./bin/chrome-reload",
+  "bin": "./bin/chrome-extensions-reloader",
   "repository": {
     "type": "git",
     "url": "git@github.com:yadomi/chrome-extensions-reloader.git"
