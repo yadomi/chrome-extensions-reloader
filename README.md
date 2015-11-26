@@ -22,7 +22,7 @@ So, what if you could do this:
 How I install this awesome stuff ? 
 ----------------------------------
 
-First, you should know that i've only tested using OSX and it should also work on Linux. However i'm not brave enought to test on Windows.
+First, you should know that i've only tested using OSX but it should also work on Linux. However i'm not brave enought to test on Windows.
 
 Requirements
 ------------
@@ -62,7 +62,7 @@ $ chrome-extensions-reloader
 You may find that watching a folder is very slow and that's true, blame `fs.watch`. That's why with a little of Sublime Text magic you can reload the extension just by pressing `ctrl+s`
 
 1. In Sublime Text create a new Build System: `Tools > Build System > New Build System...`
-2. Add this to the Build System file
+2. Add this to the Build System file ([example here](https://github.com/yadomi/sublime-config/blob/master/Chrome%20Extension.sublime-build))
 
 	
 	```
@@ -87,6 +87,6 @@ FAQ
 
 	This script reload every **unpackaged** extensions
 	
-3. Why this repository name is too long ? 
+3. Why is this repository name is too long ? 
 
 	Because letters make words and sometime there is too much letters
