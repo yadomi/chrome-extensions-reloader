@@ -5,6 +5,12 @@ var Logger = require('../lib/logger.js');
 
 var watch = require('watch');
 
+var args = process.argv.slice(2);
+var options = {
+  silentFail: args.indexOf('--silent-fail') != -1,
+  singleRun: args.indexOf('--single-run') != -1
+}
+
 if(!Reloader.hasChromeCLI()) {
   Logger.error('chrome-cli binary not found, please install it first');
   Logger.error('check https://github.com/yadomi/chrome-extensions-reloader/README.md to install it')
@@ -15,6 +21,7 @@ var args = process.argv.slice(2);
 
 var tabId = Reloader.getExtensionsTabId();
 if(!tabId) {
+  if(options.silentFail) process.exit(1);
   Logger.error('Chrome extension tab not found')
   Logger.error('Open a tab to chrome://extension-frame and try again')
   process.exit(1);
@@ -25,7 +32,7 @@ var simpleReload = function() {
   if (success) Logger.success('Reloaded extensions (in tab ' + tabId + ')');
 }
 
-if(args[0] === '--single-run') {
+if(options.singleRun) {
   simpleReload();
   process.exit(0);
 }
