@@ -1,6 +1,6 @@
 {
   "name": "chrome-extensions-reloader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically reload unpackaged chrome extensions on file change",
   "main": "reloader.js",
   "bin": "./bin/chrome-extensions-reloader",
